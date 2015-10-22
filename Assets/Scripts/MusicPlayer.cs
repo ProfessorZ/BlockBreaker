@@ -4,7 +4,8 @@ using System.Collections;
 public class MusicPlayer : MonoBehaviour {
 	static MusicPlayer instance = null;
 	// Use this for initialization
-	void Start () {
+	void Awake() {
+		Debug.Log("Music, DJ! ID: " +GetInstanceID());
 		if (instance != null) {
 			Destroy (gameObject);
 		}
@@ -12,6 +13,11 @@ public class MusicPlayer : MonoBehaviour {
 			instance = this;
 			GameObject.DontDestroyOnLoad(gameObject);		
 		}
+	}
+
+	void Start () {
+			Debug.Log("Starting Music..." + GetInstanceID());
+
 
 	}
 	
