@@ -17,7 +17,7 @@ public class Ball : MonoBehaviour {
 		
 			if (Input.GetMouseButtonDown(0)) {
 				hasStarted = true;
-				this.rigidbody2D.velocity = new Vector2 (2f,10f);
+				this.rigidbody2D.velocity = new Vector2 (2f,12f);
 			}
 		}
 	}
