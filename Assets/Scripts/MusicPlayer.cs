@@ -7,6 +7,7 @@ public class MusicPlayer : MonoBehaviour {
 	void Awake() {
 		Debug.Log("Music, DJ! ID: " +GetInstanceID());
 		if (instance != null) {
+			Debug.Log("DESTROYYYYY!");
 			Destroy (gameObject);
 		}
 		else {
