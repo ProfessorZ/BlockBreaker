@@ -4,7 +4,7 @@ using System.Collections;
 public class Brick : MonoBehaviour {
 
 	public static int breakableCount = 0;
-
+	public AudioClip crack;
 	public Sprite[] hitSprites;
 	public int maxHits;
 	private int timesHit;
@@ -30,11 +30,10 @@ public class Brick : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collider){
+		AudioSource.PlayClipAtPoint(crack,transform.position);
 		if (isBreakable){
 		HandleHits();
 		}
-
-		Debug.Log (breakableCount.ToString());
 	}
 
 	void HandleHits (){
@@ -43,7 +42,7 @@ public class Brick : MonoBehaviour {
 			breakableCount--;
 			levelManager.BrickDestroyed();
 			Destroy(gameObject);
-			Debug.Log("Brick Kaput!");
+			Debug.Log("Brick Kaput! # left:" + breakableCount.ToString());
 		}
 		else {
 			LoadSprites();

@@ -22,4 +22,11 @@ public class Ball : MonoBehaviour {
 			}
 		}
 	}
+	void OnCollisionEnter2D(Collision2D coll){
+		Vector2 tweakSpeed = new Vector2(Random.Range (0.0f,0.2f),Random.Range (0.0f,0.2f));
+		if (hasStarted) {
+			audio.Play();		
+			this.rigidbody2D.velocity += tweakSpeed;
+		}
+	}
 }
